@@ -1,0 +1,2 @@
+import {describe,expect,test} from "bun:test";import {nextStage,stageProgress} from "./workflow";
+describe("workflow",()=>{test("advances through the MIA loop",()=>{expect(nextStage("intent")).toBe("grill");expect(nextStage("grill")).toBe("plan");expect(nextStage("learn")).toBe("intent")});test("computes progress",()=>{expect(stageProgress("intent")).toBeCloseTo(100/7);expect(stageProgress("learn")).toBe(100)})})
